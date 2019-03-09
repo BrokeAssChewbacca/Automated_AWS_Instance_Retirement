@@ -2,6 +2,7 @@
 
 ## Description
 - These three scripts automate the stopping and starting of instances that have been marked for instance retirement within a specified maintenance window.
+- Based on how often you set the interval for InstanceRetirement-Main to run and how many instances you have under the account, it is very possible this costs you nothing! The first one million Lambda function and SQS requests are free!
 - InstanceRetirement-Main.py is triggered by the 'InstanceRetirement-Main' CloudWatch event rule at a specified interval.
   - When triggered it check all instances in the AWS account to see if they have a health event of ‘instance-retirement’.
   -	If no instances have this event, nothing happens.
