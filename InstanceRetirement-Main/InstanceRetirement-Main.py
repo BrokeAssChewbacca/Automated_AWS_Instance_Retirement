@@ -11,8 +11,8 @@ ec2 = boto3.client('ec2')
 sqs = boto3.client('sqs')
 events = boto3.client('events')
 
-# Checks if the given timezone is currently in daylight savings time.
-# Returns true if it is daylight savings time and false for standard time.
+# Checks if the given timezone is currently in daylight-savings time.
+# Returns true if it is daylight-savings time and false for standard time.
 def is_dst(zonename):
 	tz = pytz.timezone(zonename)
 	now = pytz.utc.localize(datetime.utcnow())
@@ -58,9 +58,9 @@ def lambda_handler(event, context):
 	currentDT = currentDT.strftime('%H:%M:%S')
 
 	# The variable 'tz' is set equal to the 'TimeZone' environment variable from the lambda function
-	# and is passed into 'is_dst()' to determine if it is daylight savings or standard time for that
+	# and is passed into 'is_dst()' to determine if it is daylight-savings or standard time for that
 	# timezone. The result of 'is_dst()' determines which environment variables 'maintWindowStartTime'
-	# and 'maintWindowEndTime' are set equal to. DST = Daylight Savings Time, ST = Standard Time.
+	# and 'maintWindowEndTime' are set equal to. DST = Daylight-Savings Time, ST = Standard Time.
 	tz = os.environ['TimeZone']
 	if is_dst(tz):
 		maintWindowStartTime = os.environ['MaintWindowStart_DST']
