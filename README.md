@@ -99,11 +99,11 @@
   - For the ‘startRule’ variable, set it equal to the ‘InstanceRetirement-InstanceStart’ CloudWatch event rule name. This value needs to be a string (i.e. it needs to be surrounded by a pair of apostrophes). 
 
 
-## Upload the code:
+## Upload the code
 - **Only perform these next steps after everything in the ‘AWS Environment Configuration’ and ‘Required Code Changes’ have been completed.**
 - You will need the AWS CLI installed on the system you perform the following steps with.
 - Recommended to do the following steps on a Linux or Unix system otherwise, some of the CLI commands may not be recognized.
-- The following assumes you have named everything exactly as told to above. If you have changed any of the script names or Lambda function names, the commands below will need to be tweaked accordingly. I’m also assuming you have each of the three folders containing the scripts on your systems desktop.
+- The following assumes you have named everything exactly as told to above. If you have changed any of the script names or Lambda function names, the commands below will need to be tweaked accordingly. It's also assumed you have each of the three folders containing the scripts on your systems desktop (InstanceRetirement-Main, InstanceRetirement-StartInstance, and InstanceRetirement-StopInstance).
 - Open terminal and type `cd desktop`
 - Type `aws configure` and enter the ‘AWS Access Key ID’ and ‘AWS Secret Access Key’ for the LambdaUpdateFunctionCodeCLI user created earlier. Enter the region name you are operating in. Leave the ‘Default output format’ as ‘None’.
   - Upload InstanceRetirement-Main
