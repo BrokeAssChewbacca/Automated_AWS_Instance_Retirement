@@ -1,8 +1,8 @@
 # Automated_AWS_Instance_Retirement
 
 ## Description
-- These three scripts automate the stopping and starting of instances that have been marked for instance retirement within a specified maintenance window.
-- Based on how often you set the interval for InstanceRetirement-Main to run and how many instances you have under the account, it is very possible this costs you nothing! The first one million Lambda function and SQS requests are free!
+- These three scripts automate the stopping and starting of Amazon EC2 instances that have been marked for instance retirement within a specified maintenance window.
+- Based on how often you set the interval for InstanceRetirement-Main to run and how many instances you have under the account, it is very possible this costs you nothing! The first one million Lambda function and SQS requests are free per month!
 - InstanceRetirement-Main.py is triggered by the 'InstanceRetirement-Main' CloudWatch event rule at a specified interval.
   - When triggered it check all instances in the AWS account to see if they have a health event of ‘instance-retirement’.
   -	If no instances have this event, nothing happens.
@@ -41,8 +41,8 @@
     - Runtime: Python 3.7
     - Permissions: Existing Role - InstanceRetirement
     - Don’t worry about the triggers now, that will be set in the next section automatically.
-    - Under ‘Function code’, set the Handler to ‘InstanceRetirement-Main.lambda_handler’
-      - Don’t worry about the function code right now, you’ll upload it later using the CLI.
+    - Set the handler to ‘InstanceRetirement-Main.lambda_handler’
+    - Don’t worry about the function code right now, you’ll upload it later using the CLI.
     - Under ‘Environment variables’ setup the following:
       - MaintWindowStart_ST
         - This is the start of the maintenance window (when the instances can stop) in standard time. The time needs to be in UTC and in the format HH:MM:SS
@@ -59,14 +59,14 @@
     - Runtime: Python 3.7
     - Permissions: Existing Role - InstanceRetirement
     - Don’t worry about the triggers now, that will be set in the next section automatically.
-    - Under ‘Function code’, set the Handler to ‘InstanceRetirement-StopInstance.lambda_handler’
-      - Don’t worry about the function code right now, you’ll upload it later using the CLI.
+    - Set the handler to ‘InstanceRetirement-StopInstance.lambda_handler’
+    - Don’t worry about the function code right now, you’ll upload it later using the CLI.
   - Create a function named ‘InstanceRetirement-StartInstance’
     - Runtime: Python 3.7
     - Permissions: Existing Role - InstanceRetirement
     - Don’t worry about the triggers now, that will be set in the next section automatically.
-    - Under ‘Function code’, set the Handler to ‘InstanceRetirement-StartInstance.lambda_handler’
-      - Don’t worry about the function code right now, you’ll upload it later using the CLI.
+    - Set the handler to ‘InstanceRetirement-StartInstance.lambda_handler’
+    - Don’t worry about the function code right now, you’ll upload it later using the CLI.
 - CloudWatch Events Rules
   - Create the following CloudWatch events rules:
     - InstanceRetirement-Main
