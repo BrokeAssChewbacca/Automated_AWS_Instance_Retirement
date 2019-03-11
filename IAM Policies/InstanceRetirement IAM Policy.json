@@ -5,10 +5,13 @@
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
+                "sqs:DeleteMessage",
                 "logs:CreateLogStream",
                 "ec2:DescribeInstances",
                 "ec2:StartInstances",
                 "events:EnableRule",
+                "sqs:ReceiveMessage",
+                "sqs:SendMessage",
                 "ec2:StopInstances",
                 "logs:CreateLogGroup",
                 "logs:PutLogEvents",
